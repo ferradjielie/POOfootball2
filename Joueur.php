@@ -5,19 +5,38 @@ class Joueur {
     private $nom;
     private $pays = [];
     private array $contrat;
+    private $equipe= [];
+    
    // private $equipe = [];
     
 
-    public function __construct(string $prenom, string $nom, Pays $pays) {
+    public function __construct(string $prenom, string $nom, Pays $pays, Equipe $equipe) {
          $this-> prenom = $prenom;
          $this -> nom = $nom;
          $this -> pays = $pays;
+         $this -> equipe = $equipe;
+         $this-> equipe = [];
+        // $this -> equipe = $equipe;
+        // $this -> equipe -> ajouterJoueur($this);
         // $this -> equipe = $equipe;
     
         
         $this -> pays -> ajouterJoueur($this);
          
     }
+
+    public function ajouterEquipe(Equipe $equipes) {
+        $this->equipe[] = $equipes;
+        // Ajouter le joueur à l'équipe
+        
+    }
+    public function afficherLesEquipes () {
+        echo $this-> prenom. " ". $this-> nom;
+        foreach($this-> equipe  as $equipes) {
+            echo $equipes;
+        }
+    }
+    
 
     
 
@@ -51,6 +70,10 @@ class Joueur {
 
     public function getNom(){
         return $this-> nom ;
+    }
+
+    public function getEquipe(){
+        return $this-> equipe ;
     }
 
     public function __toString () {
