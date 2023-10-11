@@ -1,23 +1,26 @@
 <?php
 
 class Joueur {
-    private $prenom;
-    private $nom;
+    
+    private $nomJoueur;
     private $pays = [];
-    private array $contrat;
-    private $equipe= [];
+    private array $contrats;
+    private array $equipe;
+    
     
    // private $equipe = [];
     
 
-    public function __construct(string $prenom, string $nom, Pays $pays, Equipe $equipe) {
-         $this-> prenom = $prenom;
-         $this -> nom = $nom;
+    public function __construct( string $nomJoueur, Pays $pays, array $equipe = []) {
+        
+         $this -> nomJoueur = $nomJoueur;
          $this -> pays = $pays;
+        
+        //  $this-> equipe = [];
          $this -> equipe = $equipe;
-         $this-> equipe = [];
-        // $this -> equipe = $equipe;
-        // $this -> equipe -> ajouterJoueur($this);
+         foreach ($this->equipe as $equipe) {
+             $equipe -> ajouterJoueur($this);
+         }
         // $this -> equipe = $equipe;
     
         
@@ -30,12 +33,20 @@ class Joueur {
         // Ajouter le joueur à l'équipe
         
     }
+    
     public function afficherLesEquipes () {
-        echo $this-> prenom. " ". $this-> nom;
+        echo "Le joueur". " ".$this-> nomJoueur." ". "a joué pour les équipes suivantes :";
+        echo "<ul>";
+       
         foreach($this-> equipe  as $equipes) {
-            echo $equipes;
+            echo "<li>$equipes </li>";
         }
+        echo "</ul>";
     }
+
+    
+
+    
     
 
     
@@ -52,24 +63,22 @@ class Joueur {
             echo "<br>";   }
         }
     }  */
-     public function ajouterContrat(Contrat $contrats) {
-        $this->contrat []= $contrats;
+     public function ajouterContrat(Contrat $contrat) {
+        $this->contrats []= $contrat;
      }
 
      public function afficherContrat()
     {
-        foreach ($this->contrat as $contrats) {
-            echo $contrats;
+        foreach ($this->contrats as $contrat) {
+            echo $contrat;
         }
     }
 
-    public function getPrenom() {
-        return $this-> prenom; 
-      
-    }
+  
+   
 
-    public function getNom(){
-        return $this-> nom ;
+    public function getNomJoueur(){
+        return $this-> nomJoueur ;
     }
 
     public function getEquipe(){
@@ -77,7 +86,7 @@ class Joueur {
     }
 
     public function __toString () {
-        return $this-> prenom. " ". $this-> nom;
-    }
+        return  $this-> nomJoueur ;
 
+}
 }

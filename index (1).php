@@ -16,22 +16,28 @@ $pays3 = new Pays ("l'Espagne");
 
 
 
-$equipe1 = new Equipe ("FC Barcelone","1899/11/29", $pays3, $joueur2, $joueur3);
+$equipe1 = new Equipe ("FC Barcelone","1899/11/29", $pays3);
 
-$equipe2 = new Equipe ("PSG", "01/01/1970", $pays1, $joueur1, $joueur2) ;
-$equipe3 = new Equipe ("AS Monaco", "01/01/1924", $pays1, $joueur1);
+$equipe2 = new Equipe ("PSG", "01/01/1970", $pays1) ;
+$equipe3 = new Equipe ("AS Monaco", "01/01/1924", $pays1);
  
 
-$joueur1 = new Joueur ("Kylian", "Mbappe", $pays1, $equipe3, $equipe3);
+$joueur1 = new Joueur ("Kylian Mbappe", $pays1, [$equipe2, $equipe3]);
 
-$joueur2 = new Joueur("Ousmane", "Dembelé", $pays1, $equipe1, $equipe3);
+$joueur2 = new Joueur("Ousmane Dembelé", $pays1, [$equipe1, $equipe2]);
 
-$joueur3 = new Joueur("Raphael", "Belloli", $pays2, $equipe1);
-
-
+$joueur3 = new Joueur("Raphael Belloli", $pays2, [$equipe1]);
 
 
-//$contratMba = new Contrat("2009", $equipe3,  $joueur1);BNJ?K??K??tfghhhug
+
+
+
+
+
+
+$contratKylian = new Contrat("2018");
+$contratOusmane = new Contrat("2017");
+$contratRafi = new Contrat("2023");
 
 
 
@@ -68,13 +74,19 @@ echo "<br>";
 
 //echo $joueur1 ->afficherEquipeJoueur();
 
-//echo  $equipe1-> afficherJoueursEquipe();
+echo  $equipe1-> afficherJoueursEquipe();
 echo "<br>";
 
-//echo $equipe2 -> afficherJoueursEquipe();
+echo $equipe2 -> afficherJoueursEquipe();
+echo "<br>";
+
+echo $equipe3 -> afficherJoueursEquipe();
 echo "<br>";
 echo "<br>";
 
 
-echo $joueur1 -> afficherLesEquipes();
+//echo $joueur1 -> afficherLesEquipes();
 
+echo $joueur1 ->afficherLesEquipes();
+echo "<br>";
+echo $joueur2 ->afficherLesEquipes();
