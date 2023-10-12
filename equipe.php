@@ -5,7 +5,7 @@
     private $dateCreation;
     private Pays $pays;
     private array $joueur;
-    private array $contrat;
+    private array $contrats;
    
   //  private $joueur ;
    
@@ -28,6 +28,11 @@
         
 
     }
+
+    public function ajouterContrat(Contrat $contrat) {
+        $this->contrats []= $contrat;
+     }
+
     public function ajouterJoueur(Joueur $joueurs) {
         $this-> joueur[] = $joueurs;
     }
@@ -36,15 +41,18 @@
         echo "<h2>Joueurs de l'équipe $this->nomEquipe</h2>";
         echo "<ul>";
 
-        foreach($this->joueur as $joueur) {
-           echo "<li>$joueur</li>";
+        foreach($this->contrats as $contrat) {
+           echo "<li>$contrat</li>";
         }
         
         echo "</ul>";
     }
 
-    public function ajouterContrat(Contrat $contrats) {
-        $this->contrat []= $contrats;
+    
+     public function afficherContrat () {
+        foreach($this-> contrats as $contrat) {
+            echo $contrat;
+        }
      }
 
    
