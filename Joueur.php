@@ -42,7 +42,7 @@ class Joueur {
         echo "<ul>";
        
         foreach($this-> contrats  as $contrat) {
-            echo "<li>". $contrat. "</li>";
+            echo "<li>". $contrat->getEquipe()." (". $contrat->getDebutContrat().")". "</li>";
         }
         echo "</ul>";
     }
